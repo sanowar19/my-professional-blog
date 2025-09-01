@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Blog</title>
+    <title>My Professional Blog | Tech, Lifestyle, & Tutorials</title>
+    <meta name="description" content="Your daily dose of tech, lifestyle, and tutorials. High-quality content to help you learn and grow every day.">
+    <meta name="keywords" content="blog, tech, news, lifestyle, tutorials, Sanowar Islam">
+    <meta name="author" content="Sanowar Islam">
+    <meta name="contact-email" content="msanowar2003@gmail.com">
+    <meta name="whatsapp" content="+919593705467">
+    <meta name="instagram" content="jiraiya.x.butcher">
+    <meta name="facebook" content="Sanowar Islam">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://placehold.co/32x32/3b82f6/ffffff?text=MB">
     <!-- Tailwind CSS CDN -->
@@ -20,7 +27,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       gtag('config', 'G-PSTPVBLPMF');
     </script>
     <style>
@@ -167,7 +174,7 @@
             <!-- Main Article List and View -->
             <div class="lg:col-span-2">
                 <section id="articles-list">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-red-600 dark:text-red-400 text-center lg:text-left mb-6">Latest Articles</h2>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-blue-600 dark:text-blue-400 text-center lg:text-left mb-6">Latest Articles</h2>
                     <!-- Search Bar -->
                     <div class="mb-6">
                         <input type="text" id="search-input" placeholder="Search articles..." class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -195,6 +202,9 @@
                     <!-- Social Sharing Buttons -->
                     <div class="mt-8 flex items-center space-x-4">
                         <span class="font-semibold text-gray-700 dark:text-gray-300">Share this post:</span>
+                        <a id="share-whatsapp" href="#" target="_blank" class="text-green-500 hover:text-green-700 transition-colors">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                        </a>
                         <a id="share-twitter" href="#" target="_blank" class="text-blue-400 hover:text-blue-600 transition-colors">
                             <i class="fab fa-twitter text-2xl"></i>
                         </a>
@@ -213,7 +223,7 @@
                             <!-- Related posts will be dynamically generated here -->
                         </div>
                     </div>
-                    
+
                     <!-- Comments Section -->
                     <div class="mt-12">
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Comments</h3>
@@ -240,6 +250,25 @@
                         </div>
                     </div>
                 </section>
+
+                <section id="faq" class="bg-white dark:bg-gray-800 rounded-lg shadow-lg py-12 px-6 sm:px-12 mt-12">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 text-center mb-8">Frequently Asked Questions</h2>
+                    <div class="max-w-3xl mx-auto space-y-6">
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">1. How do I find a topic?</h3>
+                            <p class="text-gray-700 dark:text-gray-300">You can use the search bar at the top of the page to find a specific article, or browse through the categories like "Tech" or "Lifestyle" to find what you need.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">2. How often do you publish new articles?</h3>
+                            <p class="text-gray-700 dark:text-gray-300">We aim to publish new, high-quality content every week. Be sure to subscribe to our newsletter to get notified!</p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">3. Can I submit an article?</h3>
+                            <p class="text-gray-700 dark:text-gray-300">While we don't currently accept guest submissions, you can use the contact form to share your ideas or suggest topics for our team to write about.</p>
+                        </div>
+                    </div>
+                </section>
+
             </div>
 
             <!-- Sidebar -->
@@ -251,14 +280,22 @@
                     </div>
                     <p id="popular-posts-status" class="text-center text-gray-500 mt-4">Loading popular posts...</p>
                 </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 sticky top-80 mt-8">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Recently Viewed</h3>
+                    <div id="recently-viewed-container" class="space-y-4">
+                        <p class="text-center text-gray-500">No recent articles.</p>
+                    </div>
+                </div>
+
             </aside>
         </div>
-        
+
         <!-- Admin Panel Section -->
         <section id="admin-panel" class="hidden mt-12 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 sm:p-12">
             <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Admin Panel</h2>
             <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Note: This is a simplified admin panel. In a production environment, you would use a more robust authentication system.</p>
-            
+
             <!-- Article Management Form -->
             <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg">
                 <h3 id="form-title" class="text-xl font-bold mb-4">Create New Article</h3>
@@ -308,7 +345,7 @@
                     <div id="article-form-status" class="text-center text-sm mt-2"></div>
                 </form>
             </div>
-            
+
             <!-- Existing Articles List -->
             <div class="mt-8">
                 <h3 class="text-xl font-bold mb-4">Existing Articles</h3>
@@ -318,35 +355,26 @@
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="bg-white dark:bg-gray-800 rounded-lg shadow-lg py-12 px-6 sm:px-12 mt-12 text-center transition-colors duration-300">
             <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">About Me</h2>
             <p class="max-w-3xl mx-auto text-gray-600 dark:text-gray-400 leading-relaxed">Hi! I'm a passionate blogger writing about technology, lifestyle, and tutorials. I started this blog to share knowledge and help others learn new things every day. My mission is to provide high-quality, actionable content that adds value to your life, whether you're a tech enthusiast, a lifelong learner, or just looking for some inspiration.</p>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="bg-gray-900 text-white rounded-lg shadow-lg py-12 px-6 sm:px-12 mt-12">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-2xl font-bold mb-4 text-center">Contact Me</h2>
                 <p class="text-gray-300 mb-8 text-center">Have a question or a topic suggestion? Fill out the form below to get in touch!</p>
-                <form id="contact-form" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-200">Name</label>
-                        <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
+                <div class="text-center mb-8">
+                    <p class="text-lg font-semibold">📧 Email: <a href="mailto:msanowar2003@gmail.com" class="underline hover:text-blue-200">msanowar2003@gmail.com</a></p>
+                    <p class="text-lg font-semibold">📞 WhatsApp: <a href="https://wa.me/919593705467" class="underline hover:text-blue-200" target="_blank">+91 9593705467</a></p>
+                    <p class="text-lg font-semibold">Socials:</p>
+                    <div class="flex justify-center space-x-6 mt-2">
+                         <a href="https://www.instagram.com/jiraiya.x.butcher" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-2xl"></i></a>
+                         <a href="https://www.facebook.com/SanowarIslam" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook text-2xl"></i></a>
                     </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-200">Email Address</label>
-                        <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium text-gray-200">Message</label>
-                        <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"></textarea>
-                    </div>
-                    <div>
-                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
-                            Send Message
-                        </button>
-                    </div>
-                    <div id="form-status" class="text-center mt-4"></div>
-                </form>
+                </div>
             </div>
         </section>
 
@@ -420,12 +448,14 @@
             const articleFormStatus = document.getElementById('article-form-status');
             const latestPostMarquee = document.getElementById('latest-post-marquee');
             const marqueeContent = latestPostMarquee.querySelector('.marquee-content');
-            
+            const recentlyViewedContainer = document.getElementById('recently-viewed-container');
+
+
             let allArticles = [];
             let currentArticleId = null;
+            let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
 
             // Firebase Initialization and Authentication
-            // Replace the placeholder below with your actual Firebase config
             const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
             const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
             window.appId = appId;
@@ -433,14 +463,14 @@
             const ADMIN_USER_ID = 'example-user-id';
 
             let db, auth;
-            
+
             if (Object.keys(firebaseConfig).length > 0) {
                 const app = initializeApp(firebaseConfig);
                 db = getFirestore(app);
                 auth = getAuth(app);
                 setLogLevel('debug'); // Enable debug logging for Firestore
                 signInAnonymously(auth).catch(error => console.error("Anonymous sign-in failed:", error));
-            
+
                 onAuthStateChanged(auth, user => {
                     if (user && user.uid === ADMIN_USER_ID) {
                         adminPanel.classList.remove('hidden');
@@ -480,7 +510,7 @@
                     </article>
                 `;
             }
-            
+
             // --- Function to update marquee with latest article ---
             function updateMarquee(articles) {
                 if (articles.length > 0) {
@@ -503,7 +533,7 @@
                 try {
                     const q = query(collection(window.db, `artifacts/${window.appId}/public/data/posts`), orderBy('views', 'desc'), limit(3));
                     const querySnapshot = await getDocs(q);
-                    
+
                     popularPostsContainer.innerHTML = ''; // Clear previous posts
                     popularPostsStatus.textContent = '';
 
@@ -535,14 +565,14 @@
                     popularPostsStatus.textContent = 'Failed to load popular posts.';
                 }
             }
-            
+
             // --- Function to generate related posts ---
             function generateRelatedPosts(currentArticle) {
                 relatedPostsContainer.innerHTML = '';
                 const related = allArticles
                     .filter(a => a.id !== currentArticle.id && a.category === currentArticle.category)
                     .slice(0, 2);
-                
+
                 if (related.length === 0) {
                      relatedPostsContainer.innerHTML = '<p class="text-center text-gray-500 col-span-2">No related posts found.</p>';
                 } else {
@@ -576,13 +606,13 @@
                 // Filter by search term
                 if (searchTerm) {
                     const lowerCaseSearchTerm = searchTerm.toLowerCase();
-                    filteredArticles = filteredArticles.filter(a => 
+                    filteredArticles = filteredArticles.filter(a =>
                         a.title.toLowerCase().includes(lowerCaseSearchTerm) ||
                         a.snippet.toLowerCase().includes(lowerCaseSearchTerm) ||
                         a.fullContent.toLowerCase().includes(lowerCaseSearchTerm)
                     );
                 }
-                
+
                 if (filteredArticles.length === 0) {
                     articlesContainer.innerHTML = '<p class="text-center text-gray-500 col-span-full">No articles match your criteria.</p>';
                 } else {
@@ -623,14 +653,22 @@
                 if (article) {
                     currentArticleId = id; // Set current article ID
                     updateViewCount(id);
+                    updateRecentlyViewed(article);
 
                     // Hide the articles list and show the article view
                     articlesListSection.classList.add('hidden');
                     articleViewSection.classList.remove('hidden');
-                    
+
                     // Populate the article content
-                    articleContent.innerHTML = article.fullContent;
-                    
+                    articleContent.innerHTML = `
+                        <h1 class="text-3xl sm:text-4xl font-bold mb-2">${article.title}</h1>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">By ${article.author} | ${article.date}</p>
+                        <img src="${article.image}" alt="${article.title} Image" class="w-full h-auto rounded-lg shadow-md mb-8">
+                        <div>
+                            ${article.fullContent}
+                        </div>
+                    `;
+
                     // Generate related posts
                     generateRelatedPosts(article);
 
@@ -639,13 +677,57 @@
 
                     // Update social share links
                     const articleUrl = window.location.href.split('#')[0] + '#article-view';
+                    document.getElementById('share-whatsapp').href = `https://wa.me/?text=${encodeURIComponent(article.title + ' ' + articleUrl)}`;
                     document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(articleUrl)}&text=${encodeURIComponent(article.title)}`;
                     document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
                     document.getElementById('share-linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(articleUrl)}&title=${encodeURIComponent(article.title)}&summary=${encodeURIComponent(article.snippet)}`;
 
+
                     // Scroll to the top of the new section
                     articleViewSection.scrollIntoView({ behavior: 'smooth' });
                 }
+            }
+
+            // --- Recently Viewed Logic ---
+            function updateRecentlyViewed(article) {
+                const existingIndex = recentlyViewed.findIndex(a => a.id === article.id);
+                if (existingIndex !== -1) {
+                    recentlyViewed.splice(existingIndex, 1);
+                }
+                recentlyViewed.unshift({
+                    id: article.id,
+                    title: article.title,
+                    image: article.image
+                });
+                recentlyViewed = recentlyViewed.slice(0, 3);
+                localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+                renderRecentlyViewed();
+            }
+
+            function renderRecentlyViewed() {
+                recentlyViewedContainer.innerHTML = '';
+                if (recentlyViewed.length === 0) {
+                    recentlyViewedContainer.innerHTML = `<p class="text-center text-gray-500">No recent articles.</p>`;
+                    return;
+                }
+                recentlyViewed.forEach(article => {
+                    recentlyViewedContainer.innerHTML += `
+                        <a href="#" data-id="${article.id}" class="article-card block">
+                            <div class="flex items-center space-x-4 p-2 -mx-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                <img src="${article.image}" alt="${article.title}" class="w-16 h-16 object-cover rounded-md">
+                                <div>
+                                    <h4 class="font-semibold text-sm text-gray-900 dark:text-gray-100">${article.title}</h4>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                });
+                document.querySelectorAll('#recently-viewed-container .article-card').forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        displayArticle(card.dataset.id);
+                    });
+                });
             }
 
             // --- Comments Logic ---
@@ -654,12 +736,12 @@
                      commentsStatus.textContent = "Comments are not available. Please check Firebase configuration.";
                      return;
                 }
-                
+
                 const commentsRef = collection(window.db, `artifacts/${window.appId}/public/data/comments`);
                 const q = query(commentsRef, where("articleId", "==", articleId), orderBy("createdAt", "desc"));
 
                 commentsStatus.textContent = "Loading comments...";
-                
+
                 onSnapshot(q, (querySnapshot) => {
                     commentsContainer.innerHTML = '';
                     commentsStatus.textContent = "";
@@ -667,7 +749,7 @@
                         commentsStatus.textContent = "No comments yet. Be the first to comment!";
                         return;
                     }
-                    
+
                     querySnapshot.forEach((doc) => {
                         const commentData = doc.data();
                         const commentHtml = `
@@ -727,13 +809,13 @@
             // Handle contact form submission
             contactForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                
+
                 formStatus.innerHTML = '<span class="text-blue-400">Sending...</span>';
                 await new Promise(resolve => setTimeout(resolve, 1500));
 
                 try {
                     formStatus.innerHTML = '<span class="text-green-400">Message sent successfully!</span>';
-                    contactForm.reset(); 
+                    contactForm.reset();
                 } catch (error) {
                     formStatus.innerHTML = '<span class="text-red-400">An error occurred. Please try again later.</span>';
                     console.error('Form submission failed:', error);
@@ -747,12 +829,12 @@
                     newsletterStatus.innerHTML = '<span class="text-red-400">Database not configured.</span>';
                     return;
                 }
-                
+
                 const email = document.getElementById('newsletter-email').value;
                 const userId = window.auth.currentUser.uid;
-                
+
                 newsletterStatus.innerHTML = '<span class="text-blue-200">Subscribing...</span>';
-                
+
                 try {
                     const newsletterRef = collection(window.db, `artifacts/${window.appId}/users/${userId}/newsletter_signups`);
                     await addDoc(newsletterRef, { email: email, subscribedAt: new Date() });
@@ -770,7 +852,7 @@
                     filterButtons.forEach(btn => btn.dataset.active = "false");
                     filterButtons.forEach(btn => btn.classList.remove('bg-blue-600', 'text-white'));
                     filterButtons.forEach(btn => btn.classList.add('bg-white', 'text-gray-800'));
-                    
+
                     button.dataset.active = "true";
                     button.classList.remove('bg-white', 'text-gray-800');
                     button.classList.add('bg-blue-600', 'text-white');
@@ -807,7 +889,7 @@
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
             }
-            
+
             // --- Real-time Article Fetching ---
             function fetchArticles() {
                 if (!window.db) {
@@ -826,6 +908,7 @@
                     renderAdminArticles();
                     getPopularPosts();
                     updateMarquee(allArticles);
+                    renderRecentlyViewed(); // Initial render for recently viewed
                 }, (error) => {
                     console.error("Error fetching articles:", error);
                     document.getElementById('loading-articles-status').textContent = "Failed to load articles.";
@@ -847,7 +930,7 @@
                     `;
                     adminArticlesContainer.appendChild(articleEl);
                 });
-                
+
                 document.querySelectorAll('.edit-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
                         const article = allArticles.find(a => a.id === btn.dataset.id);
@@ -893,7 +976,7 @@
                     fullContent: articleContentInput.value,
                     createdAt: new Date()
                 };
-                
+
                 articleFormStatus.textContent = "Processing...";
 
                 try {
@@ -907,7 +990,7 @@
                         await addDoc(collection(window.db, `artifacts/${window.appId}/public/data/articles`), articleData);
                         articleFormStatus.textContent = "Article published successfully!";
                     }
-                    
+
                     // Reset form and UI
                     articleForm.reset();
                     formTitle.textContent = 'Create New Article';
