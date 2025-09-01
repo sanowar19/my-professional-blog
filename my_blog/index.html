@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Professional Blog</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://placehold.co/32x32/3b82f6/ffffff?text=B">
+    <link rel="icon" type="image/x-icon" href="https://placehold.co/32x32/3b82f6/ffffff?text=MB">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -73,6 +73,29 @@
         body.dark .text-gray-500 {
             @apply text-gray-400;
         }
+        /* New Logo Styling */
+        .logo {
+            @apply font-bold text-gray-900 dark:text-gray-100 text-3xl;
+        }
+        .logo-wordmark {
+            @apply text-blue-600 font-extrabold;
+        }
+        .logo-tagline {
+            @apply text-lg;
+        }
+        /* Marquee styles */
+        .marquee-container {
+            @apply bg-blue-600 text-white py-2 px-4 overflow-hidden;
+        }
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -80,8 +103,10 @@
     <!-- Header -->
     <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50 transition-colors duration-300">
         <div class="container-padding max-w-7xl mx-auto flex justify-between items-center py-4">
-            <a href="#" class="text-2xl font-bold text-gray-900 dark:text-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                <img src="https://placehold.co/150x48/007bff/ffffff?text=My+Blog" alt="My Blog Logo" class="h-12">
+            <a href="#home" class="flex items-baseline space-x-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                <span class="logo">
+                    My <span class="logo-wordmark">Blog</span>
+                </span>
             </a>
             <div class="flex items-center space-x-4">
                  <nav class="hidden md:flex space-x-6">
@@ -112,6 +137,13 @@
         </div>
     </header>
 
+    <!-- Marquee Notification -->
+    <div id="latest-post-marquee" class="marquee-container text-sm sm:text-base">
+        <div class="marquee-content font-medium">
+            <!-- Content will be injected here -->
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section id="home" class="bg-gray-900 text-white text-center py-16 sm:py-24 rounded-b-3xl shadow-lg">
         <div class="container-padding max-w-7xl mx-auto">
@@ -126,7 +158,7 @@
             <!-- Main Article List and View -->
             <div class="lg:col-span-2">
                 <section id="articles-list">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 text-center lg:text-left mb-6">Latest Articles</h2>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-red-600 dark:text-red-400 text-center lg:text-left mb-6">Latest Articles</h2>
                     <!-- Search Bar -->
                     <div class="mb-6">
                         <input type="text" id="search-input" placeholder="Search articles..." class="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -377,6 +409,8 @@
             const submitBtn = document.getElementById('submit-btn');
             const cancelEditBtn = document.getElementById('cancel-edit-btn');
             const articleFormStatus = document.getElementById('article-form-status');
+            const latestPostMarquee = document.getElementById('latest-post-marquee');
+            const marqueeContent = latestPostMarquee.querySelector('.marquee-content');
             
             let allArticles = [];
             let currentArticleId = null;
@@ -437,6 +471,18 @@
                     </article>
                 `;
             }
+            
+            // --- Function to update marquee with latest article ---
+            function updateMarquee(articles) {
+                if (articles.length > 0) {
+                    const latestArticle = articles.sort((a, b) => b.createdAt.toDate() - a.createdAt.toDate())[0];
+                    marqueeContent.innerHTML = `<span class="font-bold">New Post!</span> Check out our latest article: <span class="underline hover:text-blue-200 transition-colors">${latestArticle.title}</span>`;
+                    marqueeContent.parentElement.classList.remove('hidden');
+                } else {
+                    marqueeContent.parentElement.classList.add('hidden');
+                }
+            }
+
 
             // --- Function to get and render popular posts from Firestore ---
             async function getPopularPosts() {
@@ -770,6 +816,7 @@
                     generateArticles();
                     renderAdminArticles();
                     getPopularPosts();
+                    updateMarquee(allArticles);
                 }, (error) => {
                     console.error("Error fetching articles:", error);
                     document.getElementById('loading-articles-status').textContent = "Failed to load articles.";
